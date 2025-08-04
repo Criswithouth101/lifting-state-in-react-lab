@@ -1,5 +1,23 @@
-const IngredientList = (props) => {
-  return <ul>// map through props.ingredients</ul>;
+import React from 'react';
+import Ingredient from '../Ingredient/Ingredient';
+
+const IngredientList = ({ ingredients, onAdd }) => {
+  return (
+    <div>
+      <h2>Ingredients</h2>
+      <ul>
+        {ingredients.map((ingredient, index) => (
+          <Ingredient
+            key={index}
+            ingredient={ingredient}
+            onClick={() => onAdd(ingredient)}
+            buttonLabel="+"
+          />
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default IngredientList;
+
